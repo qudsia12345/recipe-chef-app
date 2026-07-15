@@ -90,33 +90,38 @@ st.markdown("""
             -webkit-text-fill-color: #94A3B8 !important;
         }
         
-        /* --- ULTRA STRICT SELECTBOX DROPDOWN OVERRIDES --- */
-        /* Dropdown ke main outer box ko target karne ke liye */
+        /* --- ULTRA STRICT SELECTBOX DROPDOWN OVERRIDES (NEW STREAMLIT VERSION FIX) --- */
+        /* Puray selectbox container ka background white force karne ke liye */
+        div[data-testid="stSelectbox"] > div {
+            background-color: #FFFFFF !important;
+            border-radius: 12px !important;
+        }
+        
+        /* Selectbox ke inner click area ko target karna */
         div[data-baseweb="select"] {
             background-color: #FFFFFF !important;
             border: 2px solid #E2E8F0 !important;
             border-radius: 12px !important;
         }
 
-        /* Dropdown ke andar jo select control hai usko white karne ke liye */
+        /* Dropdown ke andar ke child divs ko white background dena */
         div[data-baseweb="select"] > div {
             background-color: #FFFFFF !important;
-            border-radius: 12px !important;
         }
 
-        /* Input control container ko force-white karne ke liye */
-        .stSelectbox div[data-baseweb="select"] {
-            background-color: #FFFFFF !important;
-        }
-
-        /* Text ka color bilkul dark karne ke liye taake safaid background par nazar aaye */
-        .stSelectbox div[data-baseweb="select"] span,
-        .stSelectbox div[data-baseweb="select"] div {
+        /* Selectbox ka active value text color black karna */
+        div[data-testid="stSelectbox"] div[data-baseweb="select"] span,
+        div[data-testid="stSelectbox"] div[data-baseweb="select"] div {
             color: #0F172A !important;
             -webkit-text-fill-color: #0F172A !important;
         }
+        
+        /* Dropdown arrow button container ko transparent/white background dena */
+        div[data-baseweb="select"] button {
+            background-color: transparent !important;
+        }
 
-        /* Jab dropdown open ho toh options ki list ko bhi white background dena */
+        /* Jab dropdown options khulein toh list ka background bhi white rakhna */
         ul[role="listbox"], ul[role="listbox"] li {
             background-color: #FFFFFF !important;
             color: #0F172A !important;
